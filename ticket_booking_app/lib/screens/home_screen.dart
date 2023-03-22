@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ticket_booking_app/utils/app_styles.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -6,30 +7,36 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xFFeeedf2),
+        backgroundColor: Styles.bgcolor,
         body: ListView(
           children: [
             Container(
               child: Column(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        children: [Text('Good Morning')],
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(
-                          Radius.circular(100),
-                        )),
-                        child: Image.asset(
-                          'assets/images/img_1.png',
-                          width: 50,
-                          height: 50,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                             Text('Good Morning',style:Styles.headlineStyle3 ,),
+                            Text('Book Tickets')
+                          ],
                         ),
-                      )
-                    ],
+                        Container(
+                          height: 50,
+                          width: 50,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              image: const DecorationImage(
+                                  fit: BoxFit.cover,
+                                  image:
+                                      AssetImage('assets/images/img_1.png'))),
+                        )
+                      ],
+                    ),
                   )
                 ],
               ),
