@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:ticket_booking_app/utils/app_styles.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -10,6 +11,7 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Styles.bgcolor,
         body: ListView(
           children: [
+            Gap(40),
             Container(
               child: Column(
                 children: [
@@ -21,8 +23,15 @@ class HomeScreen extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                             Text('Good Morning',style:Styles.headlineStyle3 ,),
-                            Text('Book Tickets')
+                            Text(
+                              'Good Morning',
+                              style: Styles.headlineStyle3,
+                            ),
+                            Gap(5),
+                            Text(
+                              'Book Tickets',
+                              style: Styles.headlineStyle1,
+                            )
                           ],
                         ),
                         Container(
@@ -37,7 +46,9 @@ class HomeScreen extends StatelessWidget {
                         )
                       ],
                     ),
-                  )
+                    
+                  ),
+                  
                 ],
               ),
             )
