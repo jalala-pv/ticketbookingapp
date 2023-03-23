@@ -1,6 +1,7 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:ticket_booking_app/screens/ticket_view.dart';
 import 'package:ticket_booking_app/utils/app_styles.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -71,20 +72,27 @@ class HomeScreen extends StatelessWidget {
                     Gap(40),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('Upcoming Flights',style: Styles.headlineStyle2,),
-                      InkWell(
-                        onTap: (){
-                          print('You are tapped');
-                        },
-                        child: Text('View All',style: Styles.textStyle.copyWith(color: Styles.primaryColor),))
-                    ],
+                      children: [
+                        Text(
+                          'Upcoming Flights',
+                          style: Styles.headlineStyle2,
+                        ),
+                        InkWell(
+                            onTap: () {
+                              print('You are tapped');
+                            },
+                            child: Text(
+                              'View All',
+                              style: Styles.textStyle
+                                  .copyWith(color: Styles.primaryColor),
+                            ))
+                      ],
                     )
                   ],
                 ),
               ),
             ),
-         
+            TicketView()
           ],
         ));
   }
