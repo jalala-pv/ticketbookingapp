@@ -9,9 +9,9 @@ class TicketView extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = AppLayout.getSize(context);
     return Container(
-      width: size.width,
-      height: 200,
-      padding: EdgeInsets.all(16),
+      width: size.width*0.85,
+      height: 230,
+      padding: EdgeInsets.only(right: 15,),
       child: Column(
         children: [
           /*shows the blue part of the card*/
@@ -117,8 +117,69 @@ class TicketView extends StatelessWidget {
               ],
             ),
           ),
-          /*shows the botton orange card*/
-          Container(),
+          /*shows the bottom orange card*/
+          Container(
+            decoration: BoxDecoration(
+                color: Styles.orangeColor,
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(10),
+                    bottomRight: Radius.circular(10))),
+            padding: EdgeInsets.all(16),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      children: [
+                        Text(
+                          '1 MAY',
+                          style: Styles.headlineStyle3
+                              .copyWith(color: Colors.white),
+                        ),
+                        Gap(5),
+                        Text(
+                          'DATE',
+                          style: Styles.headlineStyle4
+                              .copyWith(color: Colors.white),
+                        )
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        Text(
+                          '8.00AM',
+                          style: Styles.headlineStyle3
+                              .copyWith(color: Colors.white),
+                        ),
+                        Gap(5),
+                        Text(
+                          'Departure time',
+                          style: Styles.headlineStyle4
+                              .copyWith(color: Colors.white),
+                        )
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        Text(
+                          '23',
+                          style: Styles.headlineStyle3
+                              .copyWith(color: Colors.white),
+                        ),
+                        Gap(5),
+                        Text(
+                          'Number',
+                          style: Styles.headlineStyle4
+                              .copyWith(color: Colors.white),
+                        )
+                      ],
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
         ],
       ),
     );
