@@ -12,21 +12,21 @@ final Map<String,dynamic>hotel;
 
     final size = AppLayout.getSize(context);
     return Padding(
-      padding: const EdgeInsets.only(right: 17, top: 5),
+      padding:  EdgeInsets.only(right: AppLayout.getWidth(17), top: AppLayout.getHeight(5)),
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 17),
+        padding: EdgeInsets.symmetric(horizontal: AppLayout.getWidth(15), vertical: AppLayout.getHeight(17)),
         decoration: BoxDecoration(boxShadow: [
           BoxShadow(
-              color: Colors.grey.shade400, blurRadius: 5, spreadRadius: 2),
-        ], borderRadius: BorderRadius.circular(24), color: Styles.primaryColor),
+              color: Colors.grey.shade400, blurRadius: AppLayout.getWidth(5), spreadRadius:  AppLayout.getWidth(2)),
+        ], borderRadius: BorderRadius.circular( AppLayout.getHeight(24)), color: Styles.primaryColor),
         width: size.width * 0.6,
-        height: 350,
+        height:  AppLayout.getHeight(350),
         child: Column(
           children: [
             Container(
-              height: 180,
+              height:AppLayout.getHeight(180) ,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(AppLayout.getHeight(12)),
                   image: DecorationImage(
                       image: AssetImage('assets/images/${hotel['image']}'),
                       fit: BoxFit.cover)),

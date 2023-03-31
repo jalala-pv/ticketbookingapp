@@ -1,5 +1,6 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:ticket_booking_app/screens/SearchScreen.dart';
 import 'package:ticket_booking_app/screens/home_screen.dart';
 
 class BottomBar extends StatefulWidget {
@@ -19,7 +20,7 @@ class _BottomBarState extends State<BottomBar> {
 
   static final List _widgetoptions = [
    HomeScreen(),
-    const Text('search'),
+  SearchScreen(),
     const Text('Tickets'),
     const Text('Profile')
   ];
