@@ -155,7 +155,7 @@ class TicketView extends StatelessWidget {
                           style: Styles.headlineStyle3
                               .copyWith(color: Colors.white),
                         ),
-                        Gap(5),
+                        Gap(AppLayout.getHeight(5)),
                         Text(
                           'Departure time',
                           style: Styles.headlineStyle4
