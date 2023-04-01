@@ -3,7 +3,7 @@ Color primary=const Color(0xFF687daf);
 class Styles{
   static Color primaryColor=primary;
   static Color TextColor=const Color(0xFF3b3b3b);
-  static Color bgcolor=const Color(0xFFeeedf2);
+  static Color bgcolor=Color.fromARGB(255, 186, 183, 200);
     static Color kakiColor=const Color(0xFFd2bdb6);
   static Color orangeColor=Color.fromARGB(255, 248, 89, 67);
 static TextStyle textStyle=TextStyle(fontSize: 16,color:TextColor,fontWeight: FontWeight.w500);
