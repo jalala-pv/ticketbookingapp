@@ -4,6 +4,8 @@ import 'package:ticket_booking_app/utils/app_layout.dart';
 import 'package:ticket_booking_app/utils/app_styles.dart';
 import 'package:ticket_booking_app/utils/widgets/thick_container.dart';
 
+import '../utils/widgets/Column_Layout.dart';
+
 class TicketView extends StatelessWidget {
   final Map<String, dynamic> ticket;
   final bool? isColor;
@@ -14,7 +16,7 @@ class TicketView extends StatelessWidget {
     final size = AppLayout.getSize(context);
     return Container(
       width: size.width * 0.85,
-      height: AppLayout.getHeight(200),
+      height: AppLayout.getHeight(175),
       padding: EdgeInsets.only(
         right: AppLayout.getWidth(15),
       ),
@@ -79,19 +81,19 @@ class TicketView extends StatelessWidget {
                       ticket['from']['name'],
                       style: isColor == null
                           ? Styles.headlineStyle4.copyWith(color: Colors.white)
-                          : Styles.headlineStyle3,
+                          : Styles.headlineStyle4,
                     ),
                     Text(
                       ticket['flying_time'],
                       style: isColor == null
-                          ? Styles.headlineStyle4.copyWith(color: Colors.white)
+                          ? Styles.headlineStyle3.copyWith(color: Colors.white)
                           : Styles.headlineStyle3,
                     ),
                     Text(
                       ticket['to']['name'],
                       style: isColor == null
                           ? Styles.headlineStyle4.copyWith(color: Colors.white)
-                          : Styles.headlineStyle3,
+                          : Styles.headlineStyle4,
                     )
                   ],
                 )
@@ -143,70 +145,33 @@ class TicketView extends StatelessWidget {
             decoration: BoxDecoration(
                 color: isColor == null ? Styles.orangeColor : Colors.white,
                 borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(AppLayout.getHeight(10)),
-                    bottomRight: Radius.circular(AppLayout.getHeight(10)))),
+                    bottomLeft: Radius.circular(
+                        AppLayout.getHeight(isColor == null ? 10 : 0)),
+                    bottomRight: Radius.circular(
+                        AppLayout.getHeight(isColor == null ? 10 : 0)))),
             padding: EdgeInsets.all(AppLayout.getHeight(10)),
             child: Column(
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Column(
-                      children: [
-                        Text(
-                          ticket['date'],
-                          style: isColor == null
-                              ? Styles.headlineStyle3
-                                  .copyWith(color: Colors.white)
-                              : Styles.headlineStyle3,
-                        ),
-                        Gap(5),
-                        Text(
-                          'DATE',
-                          style: isColor == null
-                              ? Styles.headlineStyle4
-                                  .copyWith(color: Colors.white)
-                              : Styles.headlineStyle4,
-                        )
-                      ],
+                    AppColumnLayout(
+                      firsttext: ticket['date'],
+                      secondtext: 'DATE',
+                      alignment: CrossAxisAlignment.start,
+                      isColor: isColor,
                     ),
-                    Column(
-                      children: [
-                        Text(
-                          ticket['departure_time'],
-                          style: isColor == null
-                              ? Styles.headlineStyle3
-                                  .copyWith(color: Colors.white)
-                              : Styles.headlineStyle3,
-                        ),
-                        Gap(AppLayout.getHeight(5)),
-                        Text(
-                          'Departure time',
-                          style: isColor == null
-                              ? Styles.headlineStyle4
-                                  .copyWith(color: Colors.white)
-                              : Styles.headlineStyle4,
-                        )
-                      ],
+                    AppColumnLayout(
+                      firsttext: ticket['departure_time'],
+                      secondtext: 'Departure time',
+                      alignment: CrossAxisAlignment.center,
+                      isColor: isColor,
                     ),
-                    Column(
-                      children: [
-                        Text(
-                          ticket['number'].toString(),
-                          style: isColor == null
-                              ? Styles.headlineStyle3
-                                  .copyWith(color: Colors.white)
-                              : Styles.headlineStyle3,
-                        ),
-                        Gap(5),
-                        Text(
-                          'Number',
-                          style: isColor == null
-                              ? Styles.headlineStyle4
-                                  .copyWith(color: Colors.white)
-                              : Styles.headlineStyle4,
-                        )
-                      ],
+                    AppColumnLayout(
+                      firsttext: ticket['number'].toString(),
+                      secondtext: 'Number',
+                      alignment: CrossAxisAlignment.center,
+                      isColor: isColor,
                     ),
                   ],
                 )
