@@ -130,22 +130,72 @@ class TicketScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(
-                      height: 1,
-                    ),
                   ],
                 ),
               ),
               /*Bar code */
-              BarcodeWidget(
-                data: 'https://github.com/martinovovo',
-                barcode: Barcode.code128(),
-                 drawText: false,
-                 color: Styles.TextColor,
-                width: double.infinity,
-                height: 70,
-              )
+              SizedBox(
+                height: 1,
+              ),
+              Container(
+                margin:
+                    EdgeInsets.symmetric(horizontal: AppLayout.getWidth(15)),
+                padding: EdgeInsets.symmetric(
+                    horizontal: AppLayout.getHeight(15),
+                    vertical: AppLayout.getHeight(20)),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(AppLayout.getHeight(20)),
+                      bottomRight: Radius.circular(AppLayout.getHeight(20))),
+                  color: Colors.white,
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(AppLayout.getHeight(20)),
+                  child: BarcodeWidget(
+                    data: 'https://github.com/martinovovo',
+                    barcode: Barcode.code128(),
+                    drawText: false,
+                    color: Styles.TextColor,
+                    width: double.infinity,
+                    height: 70,
+                  ),
+                ),
+              ),
+              Gap(AppLayout.getHeight(20)),
+              Container(
+                  padding: EdgeInsets.only(left: AppLayout.getHeight(15)),
+                  child: TicketView(
+                    ticket: ticketList[0],
+                  )),
             ],
+          ),
+          Positioned(
+            top: AppLayout.getHeight(400),
+            left: AppLayout.getHeight(20),
+            child: Container(
+              padding: EdgeInsets.all(AppLayout.getWidth(3)),
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(color: Styles.TextColor, width: 2)),
+              child: CircleAvatar(
+                maxRadius: AppLayout.getWidth(7),
+                backgroundColor: Styles.TextColor,
+              ),
+            ),
+          ),
+          Positioned(
+            top: AppLayout.getHeight(400),
+            right: AppLayout.getHeight(20),
+            child: Container(
+              padding: EdgeInsets.all(AppLayout.getWidth(3)),
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(color: Styles.TextColor, width: 2)),
+              child: CircleAvatar(
+                maxRadius: AppLayout.getWidth(7),
+                backgroundColor: Styles.TextColor,
+              ),
+            ),
           ),
         ],
       ),
