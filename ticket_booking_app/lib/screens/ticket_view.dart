@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:ticket_booking_app/utils/app_layout.dart';
 import 'package:ticket_booking_app/utils/app_styles.dart';
+import 'package:ticket_booking_app/utils/widgets/line_build.dart';
 import 'package:ticket_booking_app/utils/widgets/thick_container.dart';
 
 import '../utils/widgets/Column_Layout.dart';
@@ -48,7 +49,7 @@ class TicketView extends StatelessWidget {
                         child: Stack(children: [
                       SizedBox(
                           height: AppLayout.getHeight(24),
-                          child: linebuild(6, isColor)),
+                          child: linebuild(lines: 6,isColor: isColor,)),
                       Center(
                         child: Transform.rotate(
                           angle: AppLayout.getHeight(1.5),
@@ -123,7 +124,7 @@ class TicketView extends StatelessWidget {
                 Expanded(
                   child: Padding(
                     padding: EdgeInsets.all(AppLayout.getHeight(12)),
-                    child: linebuild(AppLayout.getHeight(15), isColor),
+                    child: linebuild(lines: AppLayout.getHeight(15),isColor: isColor,),
                   ),
                 ),
                 SizedBox(
@@ -181,29 +182,6 @@ class TicketView extends StatelessWidget {
         ],
       ),
     );
+    }
   }
 
-  Widget linebuild(double x, isColor) {
-    return LayoutBuilder(
-      builder: (BuildContext context, BoxConstraints constraints) {
-        return Flex(
-          direction: Axis.horizontal,
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: List.generate(
-            (constraints.constrainWidth() / x).floor(),
-            (index) => SizedBox(
-              width: AppLayout.getWidth(3),
-              height: AppLayout.getHeight(1),
-              child: DecoratedBox(
-                  decoration: BoxDecoration(
-                      color: isColor == null
-                          ? Colors.white
-                          : Colors.grey.shade600)),
-            ),
-          ),
-        );
-      },
-    );
-  }
-}
